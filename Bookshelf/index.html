@@ -9,15 +9,45 @@
       src="https://kit.fontawesome.com/f2db7d39aa.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="./style.css" />
+
+    <script defer src="./script.js"></script>
     <title>Book Shelf</title>
   </head>
   <body>
     <header>
-      <h1>Bookshelf</h1>
+      <div class="header">
+        <h1>Bookshelf</h1>
 
-      <i class="fa-solid fa-book-open read">0</i>
-      <i class="fa-solid fa-book unread">0</i>
-      <i class="fa-solid fa-list list">0</i>
+        <div class="icons">
+          <i class="fa-solid fa-book-open read"> 0</i>
+          <i class="fa-solid fa-book unread"> 0</i>
+          <i class="fa-solid fa-list list"> 0</i>
+        </div>
+
+        <div class="sorting">Sorting Area</div>
+      </div>
     </header>
+
+    <main class="bookshelf"></main>
+    <div class="form_container">
+      <form method="post" class="form">
+        <div>
+          <label for="name">Book:</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div>
+          <label for="author">Author: </label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div>
+          <label for="checkbox">Read: </label>
+          <input type="checkbox" name="checkbox" id="checkbox" />
+        </div>
+
+        <button>Add Book</button>
+      </form>
+    </div>
+    <button class="btn">+</button>
   </body>
 </html>
