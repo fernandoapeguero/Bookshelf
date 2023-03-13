@@ -73,12 +73,9 @@ main {
     cursor: pointer;
  }
 
-
  .btn:hover {
     background-color: var(--air-superiority-blue);
  }
-
-
 
 h1 {
     grid-column: 2;
@@ -91,9 +88,10 @@ h1 {
     background-color: rgba(0, 0, 0, .3);
     position: absolute;
     z-index: 1;
-    display: grid;
+    display: none;
     place-content: center;
 }
+
 
 .form {
     background-color: var(--jet);
