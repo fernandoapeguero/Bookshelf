@@ -1,3 +1,6 @@
+const books = [];
+let bookCount = 0;
+
 //  Hides Modal
 const modal = document.querySelector(".form_container");
 
@@ -36,23 +39,38 @@ btn.addEventListener("click", (e) => {
 
   const formData = new FormData(form);
 
-  const container = document.createElement("div");
+  const name = formData.get("name").trim();
+  const author = formData.get("author").trim();
 
-  const title = document.createElement("h1");
-  title.textContent = formData.get("name");
+  if (name === "" || name.length < 3 || author === "" || author.length < 3)
+    return;
 
-  const author = document.createElement("p");
-  author.textContent = formData.get("author");
+  document.querySelector("#name").value = "";
+  document.querySelector("#author").value = "";
 
-  container.appendChild(title);
-  container.appendChild(author);
+  books.push({
+    id: bookCount,
+    title: formData.get("name"),
+    author: formData.get("author"),
+  });
 
-  container.setAttribute("class", "book");
+  bookCount++;
 
-  bookshelf.appendChild(container);
-
-  console.log(formData.name);
+  displayBooks();
 });
+
+// Display Books
+
+const displayBooks = () => {
+  bookshelf.innerHTML = "";
+
+  books.map((book, i) => {
+    bookshelf.innerHTML += `<div class="card">
+      <h3>${book.title}</h3>
+      <p>${book.author}</p>
+    </div>`;
+  });
+};
 
 // checkbox
 

@@ -76,15 +76,49 @@ h1 {
     grid-column: 2;
 }
 
+/* bookshelf */
+
+.book_container {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+
+}
+
+.bookshelf {
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px , 1fr));
+    gap: 20px;
+    padding: 15px;
+
+}
+
+/* cards */
+
+
+.card {
+    max-width: 250px;
+    height: auto;
+    color: var(--naples-yellow);
+    background-color: var(--jet);
+    padding: 15px;
+    border-radius: 15px;
+}
+
  /* input form */
 .form_container {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, .3);
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     display: none;
     place-content: center;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    
 }
 
 .form {
@@ -110,6 +144,8 @@ h1 {
     border: none;
     margin: 5px;
 }
+
+
 
 
 
