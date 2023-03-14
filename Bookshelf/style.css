@@ -23,12 +23,7 @@ html {
     --blue-munsell: #188fa7ff;
 }
 
-
-
-
-
 /* General Styles  */
-
 
 main {
     height: 89%;
@@ -55,9 +50,9 @@ main {
     grid-row: 2;
     grid-column: 2;
 
- }
+}
 
- .btn {
+.btn {
 
     height: 50px;
     width: 50px;
@@ -71,11 +66,11 @@ main {
     font-size: 2rem;
     border-radius: 50%;
     cursor: pointer;
- }
+}
 
- .btn:hover {
+.btn:hover {
     background-color: var(--air-superiority-blue);
- }
+}
 
 h1 {
     grid-column: 2;
@@ -92,22 +87,28 @@ h1 {
     place-content: center;
 }
 
-
 .form {
     background-color: var(--jet);
     color: var(--naples-yellow);
     padding: 15px;
-    max-width: 250px;
     border-radius: 15px;
 
 }
 
 .form label, .form input {
-    display: inline;
+    display: block;
+    margin: 10px 0px ;
 }
 
 .form div {
-    margin: 10px 0 ;
+    margin: 10px 0px;
+}
+
+.form input[type=text] {
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
 }
 
 

@@ -29,12 +29,29 @@ const form = document.querySelector(".form");
 
 const btn = document.querySelector(".addBook");
 
+const bookshelf = document.querySelector(".bookshelf");
+
 btn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const formData = new FormData(form);
 
-  console.log(formData);
+  const container = document.createElement("div");
+
+  const title = document.createElement("h1");
+  title.textContent = formData.get("name");
+
+  const author = document.createElement("p");
+  author.textContent = formData.get("author");
+
+  container.appendChild(title);
+  container.appendChild(author);
+
+  container.setAttribute("class", "book");
+
+  bookshelf.appendChild(container);
+
+  console.log(formData.name);
 });
 
 // checkbox
