@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://kit.fontawesome.com/f2db7d39aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+
+    <script defer src="./script.js"></script>
+    <title>Book Shelf</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <h1>Bookshelf</h1>
+
+        <div class="icons">
+          <i class="fa-solid fa-book-open read"> 0</i>
+          <i class="fa-solid fa-book unread"> 0</i>
+          <i class="fa-solid fa-list list"> 0</i>
+        </div>
+
+        <div class="sorting">
+          <label for="selec_sorting"> Sort:</label>
+          <select name="sorting" id="select_sorting">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="bookshelf"></main>
+    <div class="form_container">
+      <form method="post" class="form">
+        <div>
+          <label for="name">Book:</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div>
+          <label for="author">Author: </label>
+          <input type="text" name="author" id="author" />
+        </div>
+        <div>
+          <label for="myCheckbox">Read:</label>
+          <input type="checkbox" id="myCheckbox" name="myCheckbox" />
+        </div>
+
+        <button type="submit" class="addBook">Add Book</button>
+      </form>
+    </div>
+    <button class="btn">+</button>
+  </body>
+</html>
