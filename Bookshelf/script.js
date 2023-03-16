@@ -37,14 +37,24 @@ btn.addEventListener("click", (e) => {
 
   const name = formData.get("name").trim();
   const author = formData.get("author").trim();
+  const pages = formData.get("pages").trim();
 
-  if (name === "" || name.length < 3 || author === "" || author.length < 3) {
+  console.log(formData);
+
+  if (
+    name === "" ||
+    name.length < 3 ||
+    author === "" ||
+    author.length < 3 ||
+    pages.length === 0
+  ) {
     return;
   }
 
   document.querySelector("#name").value = "";
   document.querySelector("#author").value = "";
   document.querySelector("#pages").value = "";
+  document.querySelector("#read").checked = false;
 
   bookCount++;
 
@@ -53,6 +63,7 @@ btn.addEventListener("click", (e) => {
     title: formData.get("name"),
     author: formData.get("author"),
     pages: formData.get("pages"),
+    read: formData.get("read"),
   });
 
   displayBooks();
@@ -70,6 +81,7 @@ const displayBooks = () => {
       <h3>Name: ${book.title}</h3>
       <p>Author: ${book.author}</p>
       <p>Pages: ${book.pages}</p>
+      <p>Read: ${book.read ? "Yes" : "No"}</p>
     </div>`;
   });
 };
