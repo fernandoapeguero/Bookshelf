@@ -40,6 +40,7 @@
     </main>
     <div class="form_container">
       <form method="post" class="form">
+        <h2>New Book</h2>
         <div>
           <label for="name">Book:</label>
           <input type="text" name="name" id="name" required />
@@ -53,13 +54,8 @@
           <input type="number" name="pages" id="pages" required min="0" />
         </div>
         <div>
-          <label for="myCheckbox">Read:</label>
-          <input
-            type="checkbox"
-            id="myCheckbox"
-            name="myCheckbox"
-            value="read"
-          />
+          <label for="scales">Scales</label>
+          <input type="checkbox" id="scales" name="scales" checked="true" />
         </div>
 
         <button type="submit" class="addBook">Add Book</button>

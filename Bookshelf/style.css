@@ -138,20 +138,48 @@ h1 {
 
 }
 
+.form h2 {
+    text-align: center;
+}
+
 .form label, .form input {
-    display: block;
-    margin: 10px 0px ;
+    display: inline;
+    margin: 10px 0px;
 }
 
 .form div {
     margin: 10px 0px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.form input[type=checkbox] {
+    justify-self: start;
 }
 
 .form input[type=text] {
     padding: 5px;
     border-radius: 10px;
     border: none;
-    margin: 5px;
+}
+
+.form button {
+    background-color: var(--naples-yellow);
+    color: var(--jet);
+    border: none;
+    border-radius: 15px;
+    padding: 10px 30px;
+    font-weight: 700;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.form button:hover {
+    background-color: var(--jet);
+    color: var(--naples-yellow);
+    border: solid var(--naples-yellow) 1px;
+    cursor: pointer;
+
 }
 
 
