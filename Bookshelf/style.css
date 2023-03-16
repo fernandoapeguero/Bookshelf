@@ -52,6 +52,15 @@ main {
 
 }
 
+/* select style */
+
+select {
+    background-color: var(--jet);
+    color: var(--naples-yellow);
+    font-weight: 700;
+    border: none;
+}
+
 .btn {
 
     height: 50px;

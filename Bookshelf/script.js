@@ -47,14 +47,18 @@ btn.addEventListener("click", (e) => {
 
   document.querySelector("#name").value = "";
   document.querySelector("#author").value = "";
+  document.querySelector("#pages").value = "";
+
+  bookCount++;
+
+  document.querySelector(".book_count").textContent = ` ${bookCount}`;
 
   books.push({
     id: bookCount,
     title: formData.get("name"),
     author: formData.get("author"),
+    pages: formData.get("pages"),
   });
-
-  bookCount++;
 
   displayBooks();
 });
@@ -66,8 +70,9 @@ const displayBooks = () => {
 
   books.map((book, i) => {
     bookshelf.innerHTML += `<div class="card">
-      <h3>${book.title}</h3>
-      <p>${book.author}</p>
+      <h3>Name: ${book.title}</h3>
+      <p>Author: ${book.author}</p>
+      <p>Pages: ${book.pages}</p>
     </div>`;
   });
 };
