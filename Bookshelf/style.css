@@ -121,8 +121,9 @@ h1 {
     background-color: rgba(0, 0, 0, .3);
     position: absolute;
     z-index: 10;
-    display: none;
+    display: grid;
     place-content: center;
+    visibility: hidden;
     right: 0;
     left: 0;
     bottom: 0;
@@ -157,9 +158,9 @@ h1 {
     justify-self: start;
 }
 
-.form input[type=text] {
+.form input{
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: none;
 }
 

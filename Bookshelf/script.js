@@ -5,10 +5,8 @@ let bookCount = 0;
 const modal = document.querySelector(".form_container");
 
 modal.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  if (e.target == modal) {
-    modal.style.display = "none";
+  if (e.target == modal && e.target.tagName !== "INPUT") {
+    modal.style.visibility = "hidden";
   }
 });
 
@@ -17,12 +15,10 @@ modal.addEventListener("click", (e) => {
 const showModal = document.querySelector(".btn");
 
 showModal.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  if (modal.style.display === "" || modal.style.display === "none") {
-    modal.style.display = "grid";
+  if (modal.style.visibility === "" || modal.style.visibility === "hidden") {
+    modal.style.visibility = "visible";
   } else {
-    modal.style.display = "none";
+    modal.style.visibility = "hidden";
   }
 });
 
@@ -42,16 +38,15 @@ btn.addEventListener("click", (e) => {
   const name = formData.get("name").trim();
   const author = formData.get("author").trim();
 
-  if (name === "" || name.length < 3 || author === "" || author.length < 3)
+  if (name === "" || name.length < 3 || author === "" || author.length < 3) {
     return;
+  }
 
   document.querySelector("#name").value = "";
   document.querySelector("#author").value = "";
   document.querySelector("#pages").value = "";
 
   bookCount++;
-
-  document.querySelector(".book_count").textContent = ` ${bookCount}`;
 
   books.push({
     id: bookCount,
@@ -68,6 +63,8 @@ btn.addEventListener("click", (e) => {
 const displayBooks = () => {
   bookshelf.innerHTML = "";
 
+  document.querySelector(".book_count").textContent = ` ${bookCount}`;
+
   books.map((book, i) => {
     bookshelf.innerHTML += `<div class="card">
       <h3>Name: ${book.title}</h3>
@@ -76,12 +73,3 @@ const displayBooks = () => {
     </div>`;
   });
 };
-
-// checkbox
-
-var checkbox = document.getElementById("myCheckbox");
-
-checkbox.addEventListener("click", function () {
-  this.checked = !this.checked;
-  console.log("checking");
-});
