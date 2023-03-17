@@ -1,5 +1,7 @@
 const books = [];
 let bookCount = 0;
+let booksRead = 0;
+let booksNotRead = 0;
 
 let sort_direction = "ASC";
 const error_message = document.querySelector(".error_message");
@@ -94,6 +96,9 @@ btn.addEventListener("click", (e) => {
 const displayBooks = () => {
   bookshelf.innerHTML = "";
 
+  booksRead = 0;
+  booksNotRead = 0;
+
   document.querySelector(".book_count").textContent = ` ${bookCount}`;
 
   let sort_function = (a, b) => a.title.localeCompare(b.title);
@@ -103,6 +108,12 @@ const displayBooks = () => {
   }
 
   books.sort(sort_function).map((book, i) => {
+    if (book.read) {
+      booksRead++;
+    } else {
+      booksNotRead++;
+    }
+
     bookshelf.innerHTML += `<div class="card">
       <h3 class="card_title">Name: ${book.title}</h3>
       <p class="book_author">Author: ${book.author}</p>
@@ -111,5 +122,8 @@ const displayBooks = () => {
     </div>`;
   });
 
-  console.log(books);
+  document.querySelector(".read").textContent = ` ${booksRead}`;
+  document.querySelector(".not_read").textContent = ` ${booksNotRead}`;
+
+  console.log;
 };
