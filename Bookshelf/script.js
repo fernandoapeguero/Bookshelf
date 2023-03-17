@@ -1,6 +1,20 @@
 const books = [];
 let bookCount = 0;
 
+let sort_direction = "ASC";
+
+// Sorting
+
+const sorting = document.querySelector("#select_sorting");
+
+sorting.addEventListener("change", function () {
+  sort_direction = this.value;
+
+  console.log(sort_direction);
+
+  displayBooks();
+});
+
 //  Hides Modal
 const modal = document.querySelector(".form_container");
 
@@ -51,6 +65,7 @@ btn.addEventListener("click", (e) => {
     return;
   }
 
+  // Clear values
   document.querySelector("#name").value = "";
   document.querySelector("#author").value = "";
   document.querySelector("#pages").value = "";
@@ -76,12 +91,20 @@ const displayBooks = () => {
 
   document.querySelector(".book_count").textContent = ` ${bookCount}`;
 
-  books.map((book, i) => {
+  let sort_function = (a, b) => a.title.localeCompare(b.title);
+
+  if (sort_direction === "DESC") {
+    sort_function = (a, b) => b.title.localeCompare(a.title);
+  }
+
+  books.sort(sort_function).map((book, i) => {
     bookshelf.innerHTML += `<div class="card">
-      <h3>Name: ${book.title}</h3>
-      <p>Author: ${book.author}</p>
-      <p>Pages: ${book.pages}</p>
-      <p>Read: ${book.read ? "Yes" : "No"}</p>
+      <h3 class="card_title">Name: ${book.title}</h3>
+      <p class="book_author">Author: ${book.author}</p>
+      <p class="book_pages">Pages: ${book.pages}</p>
+      <p class="book_read">Read: ${book.read ? "Yes" : "No"}</p>
     </div>`;
   });
+
+  console.log(books);
 };
