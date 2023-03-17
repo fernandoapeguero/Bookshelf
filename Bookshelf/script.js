@@ -2,6 +2,7 @@ const books = [];
 let bookCount = 0;
 
 let sort_direction = "ASC";
+const error_message = document.querySelector(".error_message");
 
 // Sorting
 
@@ -62,7 +63,11 @@ btn.addEventListener("click", (e) => {
     author.length < 3 ||
     pages.length === 0
   ) {
+    error_message.style.display = "block";
+
     return;
+  } else {
+    error_message.style.display = "none";
   }
 
   // Clear values

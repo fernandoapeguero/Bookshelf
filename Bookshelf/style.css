@@ -21,6 +21,7 @@ html {
     --jet: #313131ff;
     --air-superiority-blue: #769fb6ff;
     --blue-munsell: #188fa7ff;
+    --red: #ff1b1cff;
 }
 
 /* General Styles  */
@@ -181,6 +182,12 @@ h1 {
     border: solid var(--naples-yellow) 1px;
     cursor: pointer;
 
+}
+
+.form .error_message {
+    display: none;
+    color: var(--red);
+    font-weight: 700;
 }
 
 
