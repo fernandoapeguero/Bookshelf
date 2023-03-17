@@ -113,6 +113,19 @@ h1 {
     background-color: var(--jet);
     padding: 15px;
     border-radius: 15px;
+    position: relative;
+}
+
+.card .delete {
+    top: 15px;
+    right: 20px;
+    color: var(--naples-yellow);
+    cursor: pointer;
+    position: absolute;
+}
+
+.card .delete:hover {
+    color: var(--red);
 }
 
  /* input form */

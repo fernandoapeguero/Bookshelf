@@ -1,5 +1,42 @@
-const books = [];
-let bookCount = 0;
+const books = [
+  {
+    id: 1,
+    title: "Good times",
+    author: "Ice Cube",
+    pages: 150,
+    read: true,
+  },
+  {
+    id: 2,
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    pages: 281,
+    read: false,
+  },
+  {
+    id: 3,
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    pages: 277,
+    read: true,
+  },
+  {
+    id: 4,
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    pages: 279,
+    read: false,
+  },
+  {
+    id: 5,
+    title: "1984",
+    author: "George Orwell",
+    pages: 328,
+    read: true,
+  },
+];
+
+let bookCount = books.length;
 let booksRead = 0;
 let booksNotRead = 0;
 
@@ -115,6 +152,7 @@ const displayBooks = () => {
     }
 
     bookshelf.innerHTML += `<div class="card">
+      <i class="fa-sharp fa-regular fa-circle-xmark delete" id="${i}"></i>
       <h3 class="card_title">Name: ${book.title}</h3>
       <p class="book_author">Author: ${book.author}</p>
       <p class="book_pages">Pages: ${book.pages}</p>
@@ -127,3 +165,7 @@ const displayBooks = () => {
 
   console.log;
 };
+
+// Delete Book
+
+displayBooks();
