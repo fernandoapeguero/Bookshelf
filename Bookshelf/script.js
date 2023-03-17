@@ -1,4 +1,4 @@
-const books = [
+let books = [
   {
     id: 1,
     title: "Good times",
@@ -115,8 +115,6 @@ btn.addEventListener("click", (e) => {
   document.querySelector("#pages").value = "";
   document.querySelector("#read").checked = false;
 
-  bookCount++;
-
   books.push({
     id: bookCount,
     title: formData.get("name"),
@@ -136,8 +134,6 @@ const displayBooks = () => {
   booksRead = 0;
   booksNotRead = 0;
 
-  document.querySelector(".book_count").textContent = ` ${bookCount}`;
-
   let sort_function = (a, b) => a.title.localeCompare(b.title);
 
   if (sort_direction === "DESC") {
@@ -152,7 +148,9 @@ const displayBooks = () => {
     }
 
     bookshelf.innerHTML += `<div class="card">
-      <i class="fa-sharp fa-regular fa-circle-xmark delete" id="${i}"></i>
+      <i class="fa-sharp fa-regular fa-circle-xmark delete" data-id="${
+        book.id
+      }"></i>
       <h3 class="card_title">Name: ${book.title}</h3>
       <p class="book_author">Author: ${book.author}</p>
       <p class="book_pages">Pages: ${book.pages}</p>
@@ -163,7 +161,22 @@ const displayBooks = () => {
   document.querySelector(".read").textContent = ` ${booksRead}`;
   document.querySelector(".not_read").textContent = ` ${booksNotRead}`;
 
-  console.log;
+  const deleteButton = document.querySelectorAll(".delete");
+
+  function deleteBook(e) {
+    const bookId = Number(e.target.dataset.id);
+    const bookIndex = books.findIndex((book) => book.id === bookId);
+    if (bookIndex !== -1) {
+      books.splice(bookIndex, 1);
+      displayBooks();
+    }
+  }
+
+  deleteButton.forEach((btn) => btn.addEventListener("click", deleteBook));
+
+  bookCount = books.length;
+
+  document.querySelector(".book_count").textContent = ` ${bookCount}`;
 };
 
 // Delete Book
