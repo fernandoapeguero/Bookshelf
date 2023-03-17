@@ -154,13 +154,19 @@ const displayBooks = () => {
       <h3 class="card_title">Name: ${book.title}</h3>
       <p class="book_author">Author: ${book.author}</p>
       <p class="book_pages">Pages: ${book.pages}</p>
-      <p class="book_read">Read: ${book.read ? "Yes" : "No"}</p>
+      <div>
+      <label for="readBook">Read: </label>
+      <input type="checkbox" class="i_read_it" name="readBook" id="readBook" Read: ${
+        book.read ? "checked" : ""
+      }/></div>
+      
     </div>`;
   });
 
   document.querySelector(".read").textContent = ` ${booksRead}`;
   document.querySelector(".not_read").textContent = ` ${booksNotRead}`;
 
+  // delete book
   const deleteButton = document.querySelectorAll(".delete");
 
   function deleteBook(e) {
@@ -173,6 +179,23 @@ const displayBooks = () => {
   }
 
   deleteButton.forEach((btn) => btn.addEventListener("click", deleteBook));
+
+  // change checkbox from read to the opposite value
+
+  const checkbox = document.querySelectorAll(".i_read_it");
+
+  function toggleCheckbox(e) {
+    const bookId = Number(
+      e.target.closest(".card").querySelector(".delete").dataset.id
+    );
+    const book = books.find((book) => book.id === bookId);
+    book.read = e.target.checked;
+
+    displayBooks();
+  }
+  checkbox.forEach((checkbox) =>
+    checkbox.addEventListener("change", toggleCheckbox)
+  );
 
   bookCount = books.length;
 
